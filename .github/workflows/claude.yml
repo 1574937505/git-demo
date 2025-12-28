@@ -34,7 +34,7 @@ jobs:
         id: claude
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          anthropic_api_key: "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"
 
           # Optional: Customize the trigger phrase (default: @claude)
           # trigger_phrase: "/claude"
