@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS sys_user (
     id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
     username VARCHAR(50) NOT NULL COMMENT '用户名',
     password VARCHAR(100) NOT NULL COMMENT '密码',
-    nickname VARCHAR(50) COMMENT '昵称',
+    nickname VARCHAR(200) COMMENT '昵称',
     phone VARCHAR(20) COMMENT '手机号',
     email VARCHAR(100) COMMENT '邮箱',
     avatar VARCHAR(255) COMMENT '头像',
@@ -29,8 +29,8 @@ CREATE TABLE IF NOT EXISTS sys_user (
 CREATE TABLE IF NOT EXISTS sys_role (
     id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
     role_code VARCHAR(50) NOT NULL COMMENT '角色编码',
-    role_name VARCHAR(50) NOT NULL COMMENT '角色名称',
-    description VARCHAR(200) COMMENT '描述',
+    role_name VARCHAR(200) NOT NULL COMMENT '角色名称',
+    description VARCHAR(500) COMMENT '描述',
     status TINYINT DEFAULT 1 COMMENT '状态：0禁用 1启用',
     deleted TINYINT DEFAULT 0 COMMENT '逻辑删除：0未删除 1已删除',
     create_time DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS sys_role (
 CREATE TABLE IF NOT EXISTS sys_permission (
     id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
     permission_code VARCHAR(100) NOT NULL COMMENT '权限编码',
-    permission_name VARCHAR(50) NOT NULL COMMENT '权限名称',
+    permission_name VARCHAR(200) NOT NULL COMMENT '权限名称',
     type TINYINT NOT NULL COMMENT '类型：1菜单 2按钮 3接口',
     parent_id BIGINT DEFAULT 0 COMMENT '父级ID',
     path VARCHAR(200) COMMENT '路由路径',
