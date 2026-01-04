@@ -1,3 +1,6 @@
+# Claude Code
+.claude/
+
 # IDE
 .idea/
 *.iml
@@ -27,3 +30,13 @@ Thumbs.db
 *.bak
 *.swp
 *~
+
+# Frontend dependencies
+node_modules/
+**/node_modules/
+package-lock.json
+**/package-lock.json
+yarn.lock
+**/yarn.lock
+pnpm-lock.yaml
+**/pnpm-lock.yaml
