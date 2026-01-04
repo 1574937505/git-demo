@@ -1,0 +1,49 @@
+# 生产环境配置
+spring:
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:soul_app}?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 20000
+
+  # Redis配置
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: 0
+      lettuce:
+        pool:
+          max-active: 16
+          max-wait: -1ms
+          max-idle: 8
+          min-idle: 2
+
+# JWT配置
+jwt:
+  secret: ${JWT_SECRET:please-change-this-secret-key-in-production}
+  expiration: 86400000
+  refresh-expiration: 604800000
+
+# Knife4j配置 - 生产环境关闭
+springdoc:
+  api-docs:
+    enabled: false
+
+knife4j:
+  enable: false
+
+# 日志配置
+logging:
+  level:
+    root: warn
+    com.soul: info
+  file:
+    name: logs/soul-app.log
